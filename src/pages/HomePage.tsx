@@ -33,26 +33,31 @@ export function HomePage() {
 
   return (
     <>
-      {/* ── Opening: cherry red, your name huge, like a couture house ── */}
-      <section className="relative flex h-[100svh] min-h-[600px] flex-col justify-between overflow-hidden bg-cherry px-5 pb-8 pt-28 text-paper md:px-10 md:pb-36 md:pt-32">
-        <p className="caps reveal text-center text-paper/70">{site.topics.join("  ·  ")}</p>
+      {/* ── Opening: ivory, your line set large – red only in the details ── */}
+      <section className="relative flex h-[100svh] min-h-[600px] flex-col justify-between overflow-hidden px-5 pb-8 pt-28 md:px-10 md:pb-32 md:pt-32">
+        <p className="caps reveal text-center text-soft">{site.topics.join("  ·  ")}</p>
 
-        <h1 className="reveal text-center font-display uppercase leading-[0.82] tracking-[-0.02em]">
-          <span className="block text-[clamp(4.5rem,27vw,17rem)]">Roni</span>
-          <span className="block text-[clamp(4.5rem,27vw,17rem)] italic normal-case">Goren</span>
+        <h1 className="reveal mx-auto max-w-6xl text-balance text-center font-display text-[clamp(3.2rem,9.5vw,9.5rem)] italic leading-[0.98] tracking-[-0.015em]">
+          {site.tagline.split("&").map((part, i, all) => (
+            <span key={i}>
+              {part}
+              {i < all.length - 1 && <span className="text-cherry">&amp;</span>}
+            </span>
+          ))}
         </h1>
 
-        <div className="reveal flex flex-col items-center gap-6 [animation-delay:.3s] md:flex-row md:items-end md:justify-between">
-          <p className="max-w-sm text-balance text-center italic-serif text-2xl leading-snug md:text-left md:text-3xl">{site.tagline}</p>
-          <a href="#hello" className="caps flex items-center gap-3 text-paper/80 hover:text-paper">
+        <div className="reveal flex items-end justify-between [animation-delay:.3s]">
+          <span className="caps text-soft">The journal</span>
+          <a href="#hello" className="caps flex flex-col items-center gap-3 hover:text-cherry">
             <span>Enter</span>
-            <span className="inline-block h-10 w-px animate-pulse bg-paper/70" />
+            <span className="inline-block h-12 w-px bg-cherry" />
           </a>
+          <span className="caps text-soft">{cities.filter((c) => c.status === "visited").length} cities</span>
         </div>
 
         {/* the cities, drifting slowly along the bottom */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden overflow-hidden whitespace-nowrap border-t border-paper/15 pb-3 pt-4 opacity-25 md:block" aria-hidden>
-          <div className="marquee inline-block font-display text-[4.5rem] italic leading-none">
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden overflow-hidden whitespace-nowrap border-t border-line pb-3 pt-4 md:block" aria-hidden>
+          <div className="marquee inline-block font-display text-[4.5rem] italic leading-none text-ink/10">
             {[...visited, ...visited].map((c, i) => <span key={i} className="mx-8">{c.name}</span>)}
           </div>
         </div>

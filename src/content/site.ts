@@ -6,10 +6,10 @@
 export const site = {
   name: "Roni Goren",
 
-  /** The italic line in the red opening of the Home page. */
+  /** The big italic line that opens the Home page. (An "&" in it is shown in red.) */
   tagline: "Cities, cinema & the art of a beautiful life",
 
-  /** The small words at the top of the red opening. */
+  /** The small words at the top of the Home page. */
   topics: ["Cities", "Architecture", "Style", "Cinema"],
 
   /** The quote in the red band on the Home page. */

@@ -11,7 +11,7 @@ function MenuLink({ to, label }: { to: string; label: string }) {
 }
 
 /** Your name in the middle, the menu split on both sides – like a fashion house.
- *  On the Home page it floats over the photo, then turns ivory when you scroll. */
+ *  On the Home page it floats over the opening, then gets a thin line when you scroll. */
 export function Header() {
   const { pathname } = useLocation();
   const [open, setOpen] = useState(false);
@@ -33,12 +33,12 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const overPhoto = pathname === "/" && !scrolled && !open;
+  const atTop = pathname === "/" && !scrolled && !open;
 
   return (
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-colors duration-500 ${
-        overPhoto ? "bg-transparent text-paper" : "border-b border-line bg-paper/95 text-ink backdrop-blur"
+        atTop ? "bg-transparent text-ink" : "border-b border-line bg-paper/95 text-ink backdrop-blur"
       }`}
     >
       <div className="grid grid-cols-[1fr_auto_1fr] items-center px-5 py-5 md:px-10 md:py-6">
@@ -51,7 +51,7 @@ export function Header() {
 
         <Link
           to="/"
-          className={`font-display text-[1.35rem] uppercase tracking-[0.3em] transition-opacity duration-500 md:text-[1.7rem] ${overPhoto ? "opacity-0" : "opacity-100"}`}
+          className={`font-display text-[1.35rem] uppercase tracking-[0.3em] md:text-[1.7rem]`}
         >
           {site.name}
         </Link>

@@ -20,6 +20,7 @@ export function AboutPage() {
           <div className="mt-10 max-w-xl space-y-5 font-serif text-xl leading-relaxed md:text-[1.35rem]">
             {about.paragraphs.map((p) => <p key={p}>{p}</p>)}
           </div>
+          {more[0] && <Picture photo={more[0]} className="mt-14 aspect-[3/4] w-3/5 self-end md:w-1/2" />}
           <div className="mt-12 flex flex-wrap gap-8">
             <Link to="/cities" className="link-line">My cities</Link>
             <Link to="/contact" className="link-line">Write to me</Link>
@@ -27,9 +28,9 @@ export function AboutPage() {
         </div>
       </section>
 
-      {more.length > 0 && (
+      {more.length > 1 && (
         <section className="mt-6 grid grid-cols-2 gap-5 px-5 md:mt-6 md:grid-cols-3 md:gap-6 md:px-10">
-          {more.map((p) => <Picture key={p.file} photo={p} className="aspect-[3/4]" />)}
+          {more.slice(1).map((p) => <Picture key={p.file} photo={p} className="aspect-[3/4]" />)}
         </section>
       )}
     </>
