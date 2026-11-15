@@ -1,6 +1,7 @@
 // Which web address shows which page.
 import { Route, Routes } from "react-router-dom";
 import { Layout } from "@/components/Layout";
+import { AboutPage } from "@/pages/AboutPage";
 import { ArchitecturePage } from "@/pages/ArchitecturePage";
 import { BlogPage } from "@/pages/BlogPage";
 import { BlogPostPage } from "@/pages/BlogPostPage";
@@ -17,6 +18,7 @@ export function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:slug" element={<BlogPostPage />} />
         <Route path="/cities" element={<CitiesPage />} />

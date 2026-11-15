@@ -9,7 +9,7 @@ import convert from "heic-convert";
 import sharp from "sharp";
 
 const project = new URL("..", import.meta.url).pathname;
-const folders = ["home", "architecture", "style", "cinema", "blog", "cities", "photos", "src/photos"];
+const folders = ["about", "home", "architecture", "style", "cinema", "blog", "cities", "photos", "src/photos"];
 
 const exists = (p) => access(p).then(() => true, () => false);
 

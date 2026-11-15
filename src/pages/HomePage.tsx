@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Picture } from "@/components/Picture";
+import { about } from "@/content/about";
 import { cinema } from "@/content/cinema";
 import { site } from "@/content/site";
 import { cities, posts } from "@/lib/content";
@@ -18,7 +19,7 @@ function SectionTitle({ title, to, label }: { title: string; to: string; label: 
 
 export function HomePage() {
   usePageTitle();
-  const hero = photosIn("home");
+  const portrait = photosIn("about")[0];
   const arch = photosIn("architecture");
   const style = photosIn("style");
   const stills = photosIn("cinema");
@@ -28,20 +29,45 @@ export function HomePage() {
     .sort((a, b) => b.photos.length - a.photos.length)
     .slice(0, 2);
   const others = cities.filter((c) => c.status === "visited" && !withPhotos.includes(c));
+  const visited = cities.filter((c) => c.status === "visited");
 
   return (
     <>
-      <h1 className="sr-only">{site.name}</h1>
+      {/* ── Opening: cherry red, your name huge, like a couture house ── */}
+      <section className="relative flex h-[100svh] min-h-[600px] flex-col justify-between overflow-hidden bg-cherry px-5 pb-8 pt-28 text-paper md:px-10 md:pb-36 md:pt-32">
+        <p className="caps reveal text-center text-paper/70">{site.topics.join("  ·  ")}</p>
 
-      {/* ── Opening: two photos side by side, full screen ── */}
-      <section className="relative h-[100svh] min-h-[560px]">
-        <div className="grid h-full md:grid-cols-2">
-          <Picture photo={hero[0]} large eager className="h-full" position="center 30%" />
-          <Picture photo={hero[1]} large eager className="hidden h-full md:block" />
+        <h1 className="reveal text-center font-display uppercase leading-[0.82] tracking-[-0.02em]">
+          <span className="block text-[clamp(4.5rem,27vw,17rem)]">Roni</span>
+          <span className="block text-[clamp(4.5rem,27vw,17rem)] italic normal-case">Goren</span>
+        </h1>
+
+        <div className="reveal flex flex-col items-center gap-6 [animation-delay:.3s] md:flex-row md:items-end md:justify-between">
+          <p className="max-w-sm text-balance text-center italic-serif text-2xl leading-snug md:text-left md:text-3xl">{site.tagline}</p>
+          <a href="#hello" className="caps flex items-center gap-3 text-paper/80 hover:text-paper">
+            <span>Enter</span>
+            <span className="inline-block h-10 w-px animate-pulse bg-paper/70" />
+          </a>
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/40 md:via-20%" />
-        <div className="reveal absolute bottom-0 left-0 px-5 pb-12 text-paper md:w-1/2 md:px-10 md:pb-16">
-          <p className="max-w-md font-display text-4xl italic leading-[1.1] md:text-5xl">{site.tagline}</p>
+
+        {/* the cities, drifting slowly along the bottom */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 hidden overflow-hidden whitespace-nowrap border-t border-paper/15 pb-3 pt-4 opacity-25 md:block" aria-hidden>
+          <div className="marquee inline-block font-display text-[4.5rem] italic leading-none">
+            {[...visited, ...visited].map((c, i) => <span key={i} className="mx-8">{c.name}</span>)}
+          </div>
+        </div>
+      </section>
+
+      {/* ── Hello: your portrait and a few words ── */}
+      <section id="hello" className="grid scroll-mt-20 items-center gap-10 px-5 pt-28 md:grid-cols-12 md:gap-6 md:px-10 md:pt-40">
+        <Link to="/about" className="md:col-span-5">
+          <Picture photo={portrait} className="aspect-[4/5]" position="center 30%" />
+        </Link>
+        <div className="md:col-span-6 md:col-start-7">
+          <p className="caps text-soft">About</p>
+          <h2 className="mt-5 text-[clamp(2.8rem,6vw,5.5rem)] leading-[1]">{about.title}</h2>
+          <p className="mt-8 max-w-lg italic-serif text-2xl leading-snug text-soft md:text-[1.75rem]">{about.short}</p>
+          <Link to="/about" className="link-line mt-10 inline-block">More about me</Link>
         </div>
       </section>
 
@@ -68,10 +94,10 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ── Your quote, in red ── */}
-      <section className="mt-28 bg-cherry px-5 py-28 text-center text-paper md:mt-40 md:py-40">
-        <p className="mx-auto max-w-4xl font-display text-4xl italic leading-tight md:text-7xl">“{site.quote}”</p>
-        <p className="caps mt-10 text-paper/70">{site.quoteBy}</p>
+      {/* ── Your quote ── */}
+      <section className="mx-5 mt-28 border-y border-line py-24 text-center md:mx-10 md:mt-40 md:py-36">
+        <p className="mx-auto max-w-5xl font-display text-[clamp(2.2rem,5.5vw,5rem)] italic leading-[1.1] text-cherry">“{site.quote}”</p>
+        <p className="caps mt-10 text-soft">{site.quoteBy}</p>
       </section>
 
       {/* ── Architecture: one large photo, two smaller ones ── */}

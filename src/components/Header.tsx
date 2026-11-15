@@ -49,7 +49,10 @@ export function Header() {
           {open ? "Close" : "Menu"}
         </button>
 
-        <Link to="/" className="font-display text-[1.35rem] uppercase tracking-[0.3em] md:text-[1.7rem]">
+        <Link
+          to="/"
+          className={`font-display text-[1.35rem] uppercase tracking-[0.3em] transition-opacity duration-500 md:text-[1.7rem] ${overPhoto ? "opacity-0" : "opacity-100"}`}
+        >
           {site.name}
         </Link>
 

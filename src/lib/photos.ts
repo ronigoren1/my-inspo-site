@@ -19,14 +19,14 @@ export type Photo = {
 // (Photos inside "photos/…" or "src/photos/…" are found too, so nothing breaks if a folder ends up there.)
 const thumbs = import.meta.glob<string>(
   [
-    "/{home,architecture,style,cinema,blog,cities}/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
+    "/{about,home,architecture,style,cinema,blog,cities}/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
     "/{photos,src/photos}/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
   ],
   { eager: true, import: "default", query: { w: "900", format: "webp", withoutEnlargement: "" } },
 );
 const fulls = import.meta.glob<string>(
   [
-    "/{home,architecture,style,cinema,blog,cities}/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
+    "/{about,home,architecture,style,cinema,blog,cities}/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
     "/{photos,src/photos}/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
   ],
   { eager: true, import: "default", query: { w: "2000", format: "webp", withoutEnlargement: "" } },
