@@ -1,4 +1,4 @@
-// Finds every photo in src/photos automatically.
+// Finds every photo automatically.
 // You never need to edit this file – just upload photos into the folders.
 
 export type Photo = {
@@ -14,12 +14,21 @@ export type Photo = {
 
 // Every image is shrunk and converted to a fast web format when the site is built.
 // (.HEIC iPhone photos are turned into .jpg just before this, by scripts/prepare-photos.mjs)
+//
+// Photos live in folders at the TOP of the project: home, architecture, style, cinema, blog, cities.
+// (Photos inside "photos/…" or "src/photos/…" are found too, so nothing breaks if a folder ends up there.)
 const thumbs = import.meta.glob<string>(
-  "/src/photos/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
+  [
+    "/{home,architecture,style,cinema,blog,cities}/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
+    "/{photos,src/photos}/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
+  ],
   { eager: true, import: "default", query: { w: "900", format: "webp", withoutEnlargement: "" } },
 );
 const fulls = import.meta.glob<string>(
-  "/src/photos/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
+  [
+    "/{home,architecture,style,cinema,blog,cities}/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
+    "/{photos,src/photos}/**/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP,Jpg,Jpeg,Png}",
+  ],
   { eager: true, import: "default", query: { w: "2000", format: "webp", withoutEnlargement: "" } },
 );
 
@@ -50,7 +59,7 @@ function captionFrom(file: string) {
 
 const all: Photo[] = Object.keys(thumbs)
   .map((path) => {
-    const parts = path.replace("/src/photos/", "").split("/");
+    const parts = path.replace(/^\/(src\/photos|photos)\//, "").replace(/^\//, "").split("/");
     const file = parts.pop()!;
     return {
       thumb: thumbs[path],

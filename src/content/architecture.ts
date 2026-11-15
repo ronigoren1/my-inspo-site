@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────
 //  ARCHITECTURE PAGE
-//  The photos come from the folder  src/photos/architecture
+//  The photos come from the folder  architecture
 // ─────────────────────────────────────────────────────────────
 
 export const architecture = {

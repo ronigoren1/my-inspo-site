@@ -20,7 +20,7 @@ HOW TO WRITE A NEW POST
 6. Click Commit changes. About a minute later it is on your site.
 
 PHOTOS
-- Upload photos into the folder  src/photos/blog
+- Upload photos into the folder  blog  (at the top of the project)
 - cover: my-photo.jpg   → the big photo at the top of the post (optional – delete the line for none)
 - To put a photo inside the text, write it on its own line like this:
 

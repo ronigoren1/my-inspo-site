@@ -20,16 +20,16 @@ Only change the words **inside quote marks** `"like this"`. Keep the quote marks
 
 ## Photos – just upload, nothing else
 
-Photos appear on the site automatically. Big phone photos are shrunk for you.
+Your photos live in folders at the **top** of the project (the first page you see on GitHub):
 
 | Folder | Where the photos appear |
 |---|---|
-| `src/photos/home` | The two big photos at the top of the Home page (the first two) |
-| `src/photos/cities/<city>` | That city's page. The first photo is the big cover. The folder can be named like the city: `Tel Aviv`, `Firenze`, `paris`… |
-| `src/photos/architecture` | Architecture gallery (first 3 also on Home) |
-| `src/photos/style` | Style gallery (first 4 also on Home) |
-| `src/photos/cinema` | Cinema page. **The file name becomes the caption**, e.g. `Roman Holiday.jpg` |
-| `src/photos/blog` | Photos for blog posts |
+| `home` | The two big photos at the top of the Home page (the first two) |
+| `cities` → one folder per city, e.g. `cities/paris` | That city's page. The first photo is the big cover. The folder can be named like the city: `Tel Aviv`, `Firenze`, `paris`… |
+| `architecture` | Architecture gallery (first 3 also on Home) |
+| `style` | Style gallery (first 4 also on Home) |
+| `cinema` | Cinema page. **The file name becomes the caption**, e.g. `Roman Holiday.jpg` |
+| `blog` | Photos for blog posts |
 
 - **Order:** photos are sorted by name, so start names with numbers: `01.jpg`, `02.jpg`…
 - **To upload:** open the folder on GitHub → **Add file** → **Upload files** → pick photos → **Commit changes**.
@@ -44,7 +44,7 @@ See `src/content/blog/_how-to-write-a-post.md` – it's a ready template.
 
 1. In `src/content/cities`, copy any city file (e.g. `paris.md`) to a new name like `lisbon.md` and change the name/country.
    `status:` is `visited`, `next` or `dream`.
-2. Make a folder `src/photos/cities/lisbon` and upload photos into it.
+2. For the photos: on your computer make a folder called `Lisbon` with the photos inside. On GitHub open the `cities` folder → **Add file** → **Upload files** → drag the whole `Lisbon` folder in → **Commit changes**.
 
 ---
 

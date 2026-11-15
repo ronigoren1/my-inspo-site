@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────
 //  STYLE PAGE
-//  The photos come from the folder  src/photos/style
+//  The photos come from the folder  style
 // ─────────────────────────────────────────────────────────────
 
 export const style = {

@@ -1,6 +1,6 @@
 // ─────────────────────────────────────────────────────────────
 //  CINEMA PAGE
-//  The film stills come from the folder  src/photos/cinema
+//  The film stills come from the folder  cinema
 //  (the file name becomes the caption, e.g. "Midnight in Paris.jpg")
 // ─────────────────────────────────────────────────────────────
 
