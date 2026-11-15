@@ -18,7 +18,7 @@ Every change you save on GitHub goes live on the site by itself, about a minute 
 
 Only change the words **inside quote marks** `"like this"`. Keep the quote marks and commas.
 
-## Photos – just upload, nothing else
+## Photos - just upload, nothing else
 
 Your photos live in folders at the **top** of the project (the first page you see on GitHub):
 
@@ -38,7 +38,7 @@ Your photos live in folders at the **top** of the project (the first page you se
 
 ## Write a blog post
 
-See `src/content/blog/_how-to-write-a-post.md` – it's a ready template.
+See `src/content/blog/_how-to-write-a-post.md` - it's a ready template.
 
 ## Add a city
 

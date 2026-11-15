@@ -1,6 +1,6 @@
 // The Contact page with a message form.
 // Messages are delivered to your email (site.email) by FormSubmit (formsubmit.co, free).
-// The very first message sends you a one-time "Activate form" email – click it once.
+// The very first message sends you a one-time "Activate form" email - click it once.
 import { useState, type FormEvent } from "react";
 import { site } from "@/content/site";
 import { usePageTitle } from "@/usePageTitle";
@@ -26,7 +26,7 @@ export function ContactPage() {
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           ...data,
-          _subject: `New message from your website – ${data.name}`,
+          _subject: `New message from your website - ${data.name}`,
           _template: "table",
           _captcha: "false",
         }),
@@ -62,7 +62,7 @@ export function ContactPage() {
         {status === "sent" ? (
           <div className="reveal flex h-full flex-col justify-center border-t border-ink pt-10">
             <p className="font-display text-5xl italic text-cherry md:text-6xl">Thank you.</p>
-            <p className="mt-6 italic-serif text-2xl text-soft">Your message is on its way – I'll write back soon.</p>
+            <p className="mt-6 italic-serif text-2xl text-soft">Your message is on its way - I'll write back soon.</p>
             <button type="button" onClick={() => setStatus("idle")} className="link-line mt-10 self-start">Send another</button>
           </div>
         ) : (
@@ -92,7 +92,7 @@ export function ContactPage() {
               </button>
               {status === "error" && (
                 <p className="italic-serif text-xl text-cherry">
-                  Something went wrong – please email me directly at {site.email}.
+                  Something went wrong - please email me directly at {site.email}.
                 </p>
               )}
             </div>

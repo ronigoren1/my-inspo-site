@@ -1,8 +1,8 @@
-// Gets your photos ready before the website is built. Runs by itself – you never run it.
+// Gets your photos ready before the website is built. Runs by itself - you never run it.
 //  1. iPhone .HEIC photos → turned into .jpg so browsers can show them.
 //  2. Photos taken sideways → turned the right way up.
 //     (Phones save "this photo is sideways" as a hidden tag instead of turning the picture.)
-// If a folder doesn't exist, it's simply skipped – this script never stops the site from building.
+// If a folder doesn't exist, it's simply skipped - this script never stops the site from building.
 import { readdir, readFile, writeFile, access } from "node:fs/promises";
 import { join } from "node:path";
 import convert from "heic-convert";

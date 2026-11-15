@@ -18,7 +18,7 @@ export const site = {
 
   /** Contact page */
   email: "ronigoren19@gmail.com",
-  contactIntro: "About a city, a film, a building — or anything else. I read every message.",
+  contactIntro: "About a city, a film, a building - or anything else. I read every message.",
 
   /** Your Instagram accounts. Delete a line to remove one, or copy a line to add one. */
   instagram: [

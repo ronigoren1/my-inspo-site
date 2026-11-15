@@ -1,5 +1,5 @@
 // Finds every photo automatically.
-// You never need to edit this file – just upload photos into the folders.
+// You never need to edit this file - just upload photos into the folders.
 
 export type Photo = {
   /** Small version, for grids */

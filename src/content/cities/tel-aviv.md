@@ -2,6 +2,7 @@
 name: Tel Aviv
 country: Israel
 status: visited
+order: 1
 ---
 
 <!--

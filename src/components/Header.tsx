@@ -10,7 +10,7 @@ function MenuLink({ to, label }: { to: string; label: string }) {
   );
 }
 
-/** Your name in the middle, the menu split on both sides – like a fashion house.
+/** Your name in the middle, the menu split on both sides - like a fashion house.
  *  On the Home page it floats over the opening, then gets a thin line when you scroll. */
 export function Header() {
   const { pathname } = useLocation();

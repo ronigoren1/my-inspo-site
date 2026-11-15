@@ -47,6 +47,8 @@ export type City = {
   name: string;
   country: string;
   status: "visited" | "next" | "dream";
+  /** Optional: a smaller number shows first (e.g. order: 1). Without it, cities go A to Z. */
+  order: number;
   html: string;
   hasWords: boolean;
   photos: Photo[];
@@ -67,10 +69,11 @@ export const cities: City[] = Object.entries(cityFiles)
       name: str(data.name) || slug,
       country: str(data.country),
       status: (status === "next" || status === "dream" ? status : "visited") as City["status"],
+      order: Number.isFinite(Number(data.order)) && data.order !== undefined ? Number(data.order) : 100,
       html: toHtml(body, `cities/${slug}`),
       hasWords: !isEmpty(body),
       // Photos can be in a folder named after the file ("tel-aviv") or the city ("Tel Aviv", "Firenze")
       photos: photosIn("cities", slug).length ? photosIn("cities", slug) : photosIn("cities", str(data.name) || slug),
     };
   })
-  .sort((a, b) => a.name.localeCompare(b.name));
+  .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name));
