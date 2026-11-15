@@ -95,6 +95,10 @@
   & ol { list-style: decimal; }
 }
 
+/* the slow zoom on the photo showing in the opening arch */
+.arch-photo { transform: scale(1.06); transition: opacity 1.6s ease, transform 6s ease-out; }
+.arch-photo.is-on { transform: scale(1); }
+
 @utility marquee { animation: marquee 60s linear infinite; }
 @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
@@ -102,4 +106,4 @@
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: none; }
 }
-@media (prefers-reduced-motion: reduce) { .reveal, .zoom, .marquee { animation: none; transition: none; } }
+@media (prefers-reduced-motion: reduce) { .reveal, .zoom, .marquee, .arch-photo { animation: none; transition: none; } }

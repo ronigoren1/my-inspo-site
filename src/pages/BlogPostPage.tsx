@@ -6,7 +6,7 @@ import { NotFoundPage } from "./NotFoundPage";
 export function BlogPostPage() {
   const { slug } = useParams();
   const post = posts.find((p) => p.slug === slug);
-  usePageTitle(post?.title);
+  usePageTitle(post ? post.title : "Not found");
   if (!post) return <NotFoundPage />;
 
   return (

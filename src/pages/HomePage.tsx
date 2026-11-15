@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { ArchSlideshow } from "@/components/ArchSlideshow";
 import { Picture } from "@/components/Picture";
 import { about } from "@/content/about";
 import { cinema } from "@/content/cinema";
@@ -20,6 +21,7 @@ function SectionTitle({ title, to, label }: { title: string; to: string; label: 
 export function HomePage() {
   usePageTitle();
   const portrait = photosIn("about")[0];
+  const opening = photosIn("home");
   const arch = photosIn("architecture");
   const style = photosIn("style");
   const stills = photosIn("cinema");
@@ -33,26 +35,27 @@ export function HomePage() {
 
   return (
     <>
-      {/* ── Opening: ivory, your line set large – red only in the details ── */}
-      <section className="relative flex h-[100svh] min-h-[600px] flex-col justify-between overflow-hidden px-5 pb-8 pt-28 md:px-10 md:pb-32 md:pt-32">
-        <p className="caps reveal text-center text-soft">{site.topics.join("  ·  ")}</p>
-
-        <h1 className="reveal mx-auto max-w-6xl text-balance text-center font-display text-[clamp(3.2rem,9.5vw,9.5rem)] italic leading-[0.98] tracking-[-0.015em]">
-          {site.tagline.split("&").map((part, i, all) => (
-            <span key={i}>
-              {part}
-              {i < all.length - 1 && <span className="text-cherry">&amp;</span>}
-            </span>
-          ))}
-        </h1>
-
-        <div className="reveal flex items-end justify-between [animation-delay:.3s]">
-          <span className="caps text-soft">The journal</span>
-          <a href="#hello" className="caps flex flex-col items-center gap-3 hover:text-cherry">
-            <span>Enter</span>
-            <span className="inline-block h-12 w-px bg-cherry" />
-          </a>
-          <span className="caps text-soft">{cities.filter((c) => c.status === "visited").length} cities</span>
+      {/* ── Opening: your line beside an arched window where your photos take turns ── */}
+      <section className="relative flex min-h-[100svh] flex-col overflow-hidden px-5 pb-8 pt-24 md:px-10 md:pb-32 md:pt-28">
+        <div className="grid flex-1 content-center items-center gap-10 md:grid-cols-12 md:gap-6">
+          <div className="order-2 md:order-1 md:col-span-7">
+            <p className="caps reveal text-soft">{site.topics.join("  ·  ")}</p>
+            <h1 className="reveal mt-6 font-display text-[clamp(3rem,7.4vw,8rem)] italic leading-[0.98] tracking-[-0.015em] md:mt-10">
+              {site.tagline.split("&").map((part, i, all) => (
+                <span key={i}>
+                  {part}
+                  {i < all.length - 1 && <span className="text-cherry">&amp;</span>}
+                </span>
+              ))}
+            </h1>
+            <a href="#hello" className="caps reveal mt-10 inline-flex items-center gap-4 hover:text-cherry md:mt-14 [animation-delay:.3s]">
+              <span className="inline-block h-px w-14 bg-cherry" />
+              Enter
+            </a>
+          </div>
+          <div className="order-1 md:order-2 md:col-span-4 md:col-start-9">
+            <ArchSlideshow photos={opening} className="reveal mx-auto aspect-[3/4] w-[62%] md:aspect-[3/4.4] md:w-full" />
+          </div>
         </div>
 
         {/* the cities, drifting slowly along the bottom */}

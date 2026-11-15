@@ -17,7 +17,7 @@ export const about = {
   paragraphs: [
     "I'm happiest walking through a city I don't know yet – looking up at balconies, getting lost in bookshops, ordering one more coffee.",
     "This is where I keep it all: the places I've loved, the buildings that stopped me in the street, the style that inspires me, and the films I could watch a hundred times.",
-    "Milan, Firenze, Naples, Rome, Como, Paris, Budapest, Vienna, Bangkok, Chiang Mai and Pai so far. Madrid is next.",
+    "Milan, Rome, Como, Paris, Vienna, Budapest, Bangkok and Tel Aviv – so far.",
   ],
 
   /** The short version on the Home page, next to your photo */

@@ -9,7 +9,7 @@ const statusLabel = { visited: "", next: "Next stop", dream: "Dreaming of" };
 export function CityPage() {
   const { slug } = useParams();
   const city = cities.find((c) => c.slug === slug);
-  usePageTitle(city?.name);
+  usePageTitle(city ? city.name : "Not found");
   if (!city) return <NotFoundPage />;
 
   const [cover, ...rest] = city.photos;
